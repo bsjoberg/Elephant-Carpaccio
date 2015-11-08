@@ -3,7 +3,7 @@
 --Add multiple items to cart
 --Allow user to remove last item from cart
 --Checkout item(s) from cart
-Order Value with Manual State Tax
+--Order Value with Manual State Tax
 Order Value with Utah default state tax
 Order value with 2 state taxes supported
 Order value with 5 state taxes supported
