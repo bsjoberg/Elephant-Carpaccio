@@ -1,0 +1,15 @@
+Hello World
+Order Value with manual input
+Order Value with Manual State Tax
+Order Value with Utah default state tax
+Order value with 2 state taxes supported
+Order value with 5 state taxes supported
+Manual discount before taxes
+Lowest value discount rate applied before taxes
+1st and 2nd lowest value discount rates applied before taxes
+5 discount rates applied before taxes
+Initial user interface
+
+
+Responsive
+
