@@ -43,4 +43,32 @@ public class ShoppingCartTest extends TestCase {
 		cart.add("Item Two", (float)500.56);
 		assertEquals(1100.79, cart.getTotal(), 2);	
 	}
+	
+	@Test
+	public void testNumberOfItemsInCartWithOne()
+	{
+		ShoppingCart cart = new ShoppingCart();
+		cart.add("Item One", 600);
+		assertEquals(1, cart.getNumberOfItems());
+	}
+	
+	@Test
+	public void testNumberOfItemsInCartWithTwo()
+	{
+		ShoppingCart cart = new ShoppingCart();
+		cart.add("Item One", 600);
+		cart.add("Item Two", 500);
+		assertEquals(2, cart.getNumberOfItems());
+	}
+	
+/*	@Test
+	public void testRemoveOneItemFromCartWithTwoItems()
+	{
+		ShoppingCart cart = new ShoppingCart();
+		cart.add("Item One", 600);
+		cart.add("Item Two", 500);
+		assertEquals(2, cart.getNumberOfItems());
+		cart.removeItem();
+		assertEquals(1, cart.getNumberOfItems());
+	}*/
 }
