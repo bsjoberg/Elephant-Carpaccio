@@ -1,6 +1,8 @@
-package com.bdd.ElephantCarpaccio;
+package com.bdd.elephantcarpaccio;
 
 import org.junit.Assert;
+
+import com.bdd.elephantcarpaccio.HelloWorld;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;

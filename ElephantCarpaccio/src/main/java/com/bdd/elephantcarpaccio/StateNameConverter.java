@@ -1,13 +1,13 @@
-package com.bdd.ElephantCarpaccio;
+package com.bdd.elephantcarpaccio;
 
-class StateNameConverter {
-
+public class StateNameConverter {
+	
 	public static String convertStateName(String stateName) {
 		String stateCode = "";
 		
-		if (stateName.equals("Utah"))
+		if (("Utah").equals(stateName))
 			stateCode = "UT";
-		else if (stateName.equals("Nevada"))
+		else if (("Nevada").equals(stateName))
 			stateCode = "NV";
 		return stateCode;
 	}

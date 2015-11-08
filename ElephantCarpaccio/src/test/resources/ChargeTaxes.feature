@@ -16,3 +16,11 @@ Scenario: Apply Utah tax rate to my purchase
 	And I add "item two" of 600 dollars
 	When I apply "Utah" sales tax
 	Then my total value should be 1174.8 dollars
+	
+Scenario: Apply Nevada tax rate to my purchase
+	Given I am shopping in a retail store in "Nevada"
+	And I add "item one" of 500 dollars
+	And I add "item two" of 600 dollars
+	When I apply "Nevada" sales tax
+	Then my total value should be 1188.00 dollars
+	

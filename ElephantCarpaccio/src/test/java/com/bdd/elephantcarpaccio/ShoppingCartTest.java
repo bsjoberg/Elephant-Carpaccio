@@ -1,6 +1,8 @@
-package com.bdd.ElephantCarpaccio;
+package com.bdd.elephantcarpaccio;
 
 import org.junit.Test;
+
+import com.bdd.elephantcarpaccio.ShoppingCart;
 
 import junit.framework.TestCase;
 
@@ -114,9 +116,18 @@ public class ShoppingCartTest extends TestCase {
 	}
 	
 	@Test
-	public void testApplyUtahTaxesToCartWithOneItem() {
+	public void testApplyUtahTaxesToCartWithOneItem() 
+	{
 		ShoppingCart cart = new ShoppingCart("UT");
 		cart.add("Item One", 2000);
 		assertEquals(2137, cart.getTotal(), 2);
+	}
+	
+	@Test
+	public void testApplyNevadaTaxesToCartWithOneItem() 
+	{
+		ShoppingCart cart = new ShoppingCart("NV");
+		cart.add("Item One", 2000);
+		assertEquals(2160, cart.getTotal(), 2);
 	}
 }

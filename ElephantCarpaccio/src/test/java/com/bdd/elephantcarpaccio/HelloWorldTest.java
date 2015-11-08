@@ -1,4 +1,4 @@
-package com.bdd.ElephantCarpaccio;
+package com.bdd.elephantcarpaccio;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

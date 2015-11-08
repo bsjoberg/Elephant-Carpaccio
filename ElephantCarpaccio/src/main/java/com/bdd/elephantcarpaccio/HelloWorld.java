@@ -1,4 +1,4 @@
-package com.bdd.ElephantCarpaccio;
+package com.bdd.elephantcarpaccio;
 
 /**
  * Hello world!

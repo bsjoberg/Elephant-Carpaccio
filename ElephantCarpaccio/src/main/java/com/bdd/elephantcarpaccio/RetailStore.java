@@ -1,4 +1,4 @@
-package com.bdd.ElephantCarpaccio;
+package com.bdd.elephantcarpaccio;
 
 import java.util.Scanner;
 
@@ -16,10 +16,11 @@ public class RetailStore {
 	}
 
 	public static void main(String[] args) throws UnknownError {
-		RetailStore store = new RetailStore();
+		String stateName = "Utah";
+		RetailStore store = new RetailStore(stateName);
 		Scanner reader = new Scanner (System.in);
 		
-		System.out.println("Welcome to our retail store");
+		System.out.println("Welcome to our " + stateName + " retail store");
 		
 		store.provideOptionsToCustomer(reader);
 			
@@ -30,7 +31,7 @@ public class RetailStore {
 	private void provideOptionsToCustomer(Scanner reader) {
 		String input = "";
 		
-		while (!input.equals("c"))
+		while (!("c").equals(input))
 		{
 			// Ask what the customer would like to do (add, checkout)
 			System.out.println("Current Subtotal: $" + getCart().getSubTotal());
@@ -38,7 +39,7 @@ public class RetailStore {
 			System.out.println("(a)dd item, (r)emove last item, set (t)axes, (c)heckout");
 			input = reader.nextLine();
 			
-			if (input.equals("a"))
+			if (("a").equals(input))
 			{
 				System.out.println("Enter item name: ");
 				String itemName = reader.nextLine();
@@ -50,11 +51,11 @@ public class RetailStore {
 				// information on it that causes it to loop again.
 				reader.nextLine();
 			}
-			else if (input.equals("r"))
+			else if (("r").equals(input))
 			{
 				getCart().removeLastItem();
 			}
-			else if (input.equals("t"))
+			else if (("t").equals(input))
 			{
 				System.out.println("Enter tax rate: ");
 				float rate = reader.nextFloat();

@@ -1,8 +1,10 @@
-package com.bdd.ElephantCarpaccio;
+package com.bdd.elephantcarpaccio;
 
 import java.text.DecimalFormat;
 
 import org.junit.Assert;
+
+import com.bdd.elephantcarpaccio.RetailStore;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;

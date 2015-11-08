@@ -1,6 +1,8 @@
-package com.bdd.ElephantCarpaccio;
+package com.bdd.elephantcarpaccio;
 
 import org.junit.Test;
+
+import com.bdd.elephantcarpaccio.StateNameConverter;
 
 import junit.framework.TestCase;
 

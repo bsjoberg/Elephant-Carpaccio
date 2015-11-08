@@ -1,20 +1,26 @@
-package com.bdd.ElephantCarpaccio;
+package com.bdd.elephantcarpaccio;
 
 import java.util.LinkedList;
 
 public class ShoppingCart {
-	LinkedList<Item> cart = new LinkedList<Item>();
-	private float runningSubTotal = 0;
-	private float taxRate = 0;
+	private LinkedList<Item> cart;
+	private float runningSubTotal;
+	private float taxRate;
 	
 	public ShoppingCart()
 	{
-		
+		cart = new LinkedList<Item>();
+		runningSubTotal = 0;
+		taxRate = 0;
 	}
 	
-	public ShoppingCart(String stateCode) {
+	public ShoppingCart(String stateCode) 
+	{
+		this();
 		if (stateCode == "UT")
 			setTaxRate((float)6.85);
+		else if (stateCode == "NV")
+			setTaxRate((float)8.0);
 	}
 
 	public void add(String itemName, float itemPrice) {
