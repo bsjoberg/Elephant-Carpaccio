@@ -35,4 +35,12 @@ public class ShoppingCartTest extends TestCase {
 		cart.add("Item Two", 500);
 		assertEquals(1100, cart.getTotal(), 2);	
 	}
+	
+	@Test
+	public void testCheckValueAfterAddingTwoItemsDifferentDecimalValue() {
+		ShoppingCart cart = new ShoppingCart();
+		cart.add("Item One", (float)600.23);
+		cart.add("Item Two", (float)500.56);
+		assertEquals(1100.79, cart.getTotal(), 2);	
+	}
 }
