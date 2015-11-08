@@ -22,6 +22,11 @@ public class ShoppingCartSteps {
 		store.getCart().add(itemName, value);
 	}
 	
+	@When("^I remove the first item$")
+	public void iRemoveTheFirstItem() throws Throwable {
+		store.getCart().removeFirstItem();
+	}
+	
 	@When("^I remove the last item$")
 	public void iRemoveTheLastItem() throws Throwable {
 		store.getCart().removeLastItem();

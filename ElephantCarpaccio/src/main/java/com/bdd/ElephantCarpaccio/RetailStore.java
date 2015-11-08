@@ -18,7 +18,7 @@ public class RetailStore {
 		
 		store.provideOptionsToCustomer(reader);
 			
-		System.out.println("Your order value is: $" + cart.getSubTotal());
+		System.out.println("Your order value is: $" + cart.getTotal());
 		reader.close();
 	}
 
@@ -28,8 +28,9 @@ public class RetailStore {
 		while (!input.equals("c"))
 		{
 			// Ask what the customer would like to do (add, checkout)
+			System.out.println("Current Subtotal: $" + getCart().getSubTotal());
 			System.out.println("What would you like to do?");
-			System.out.println("(a)dd item, (r)emove last item, (c)heckout");
+			System.out.println("(a)dd item, (r)emove last item, set (t)axes, (c)heckout");
 			input = reader.nextLine();
 			
 			if (input.equals("a"))
@@ -47,6 +48,16 @@ public class RetailStore {
 			else if (input.equals("r"))
 			{
 				getCart().removeLastItem();
+			}
+			else if (input.equals("t"))
+			{
+				System.out.println("Enter tax rate: ");
+				float rate = reader.nextFloat();
+				getCart().setTaxes(rate);
+				
+				// I had to put this in because the reader has some 
+				// information on it that causes it to loop again.
+				reader.nextLine();
 			}
 			else if (input.equals("c"))
 			{
