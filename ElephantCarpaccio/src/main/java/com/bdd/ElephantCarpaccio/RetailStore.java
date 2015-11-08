@@ -27,7 +27,7 @@ public class RetailStore {
 		
 		while (!input.equals("c"))
 		{
-			// Ask what the customer would like to do (add, remove, checkout)
+			// Ask what the customer would like to do (add, checkout)
 			System.out.println("What would you like to do?");
 			System.out.println("(a)dd item, (c)heckout");
 			input = reader.nextLine();
