@@ -1,13 +1,13 @@
 package com.bdd.ElephantCarpaccio;
 
 public class ShoppingCart {
-	private int runningTotal = 0;
+	private float runningTotal = 0;
 	
-	public void add(String itemName, int itemPrice) {
-		runningTotal += itemPrice;
+	public void add(String itemName, float itemOnePrice) {
+		runningTotal += itemOnePrice;
 	}
 
-	public int getTotal() {
+	public float getTotal() {
 		return runningTotal;
 	}
 
