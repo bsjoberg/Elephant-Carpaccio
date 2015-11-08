@@ -1,12 +1,14 @@
 package com.bdd.ElephantCarpaccio;
 
+import java.util.LinkedList;
+
 public class ShoppingCart {
+	LinkedList<Item> cart = new LinkedList<Item>();
 	private float runningTotal = 0;
-	private int numberOfItems = 0;
 	
-	public void add(String itemName, float itemOnePrice) {
-		runningTotal += itemOnePrice;
-		numberOfItems++;
+	public void add(String itemName, float itemPrice) {
+		cart.add(new Item(itemName, itemPrice));
+		runningTotal += itemPrice;
 	}
 
 	public float getTotal() {
@@ -14,12 +16,13 @@ public class ShoppingCart {
 	}
 
 	public int getNumberOfItems() {
-		return numberOfItems;
+		return cart.size();
 	}
 
 	public void removeItem() {
-		// TODO Auto-generated method stub
-		
+		float itemPrice = cart.get(cart.size() - 1).getItemPrice();
+		runningTotal -= itemPrice;
+		cart.remove();
 	}
 
 }

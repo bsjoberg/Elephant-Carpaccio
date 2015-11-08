@@ -61,7 +61,7 @@ public class ShoppingCartTest extends TestCase {
 		assertEquals(2, cart.getNumberOfItems());
 	}
 	
-/*	@Test
+	@Test
 	public void testRemoveOneItemFromCartWithTwoItems()
 	{
 		ShoppingCart cart = new ShoppingCart();
@@ -70,5 +70,16 @@ public class ShoppingCartTest extends TestCase {
 		assertEquals(2, cart.getNumberOfItems());
 		cart.removeItem();
 		assertEquals(1, cart.getNumberOfItems());
-	}*/
+	}
+	
+	@Test
+	public void testRemoveLastItemFromCartWithTwoItemsAndCheckValue()
+	{
+		ShoppingCart cart = new ShoppingCart();
+		cart.add("Item One", 600);
+		cart.add("Item Two", 500);
+		assertEquals(1100, cart.getTotal(), 2);
+		cart.removeItem();
+		assertEquals(600, cart.getTotal(), 2);
+	}
 }
