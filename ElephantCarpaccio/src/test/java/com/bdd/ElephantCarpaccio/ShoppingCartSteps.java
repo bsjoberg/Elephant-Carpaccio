@@ -7,7 +7,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class OrderValueSteps {
+public class ShoppingCartSteps {
 	private RetailStore store = new RetailStore();
 
 	@Then("^the order value should be (\\d+)\\.(\\d+)$")
@@ -27,10 +27,15 @@ public class OrderValueSteps {
 		store.getCart().add(itemName, value);
 	}
 
-	@Then("^my checkout value should be (\\d+)$")
+	@Then("^my checkout value should be (\\d+) dollars$")
 	public void myCheckoutValueShouldBe(int value) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		Assert.assertEquals(value, store.getCart().getTotal(), 2);
+	}
+	
+	@When("^I remove the last item$")
+	public void iRemoveTheLastItem() throws Throwable {
+		store.getCart().removeLastItem();
 	}
 
 }

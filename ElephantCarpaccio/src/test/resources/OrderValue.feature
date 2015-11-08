@@ -7,7 +7,7 @@ Scenario Outline: Shopping in a retail store and checkout
 		one item for different dollar amounts
 	Given I am shopping in a retail store
 	When I add "item one" of <price> dollars
-	Then my checkout value should be <total>
+	Then my checkout value should be <total> dollars
 	
 	Examples: 
 	| price		| total		|
@@ -19,7 +19,7 @@ Scenario: Shopping in a retail store and checkout two items different price
 	Given I am shopping in a retail store
 	When I add "item one" of 300 dollars
 	And I add "item two" of 400 dollars
-	Then my checkout value should be 700
+	Then my checkout value should be 700 dollars
 	
 #Scenario: Checkout one item for 255.53 dollars
 #	Given The price of "item one" is 255.53

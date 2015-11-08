@@ -1,8 +1,8 @@
 --Hello World
 --Order Value with manual input
 --Add multiple items to cart
-Allow user to remove items from cart
-Checkout item from cart
+Allow user to remove last item from cart
+--Checkout item(s) from cart
 Order Value with Manual State Tax
 Order Value with Utah default state tax
 Order value with 2 state taxes supported

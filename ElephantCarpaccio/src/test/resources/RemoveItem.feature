@@ -1,9 +1,13 @@
-Feature: Remove item from cart
+Feature: Remove item(s) from the cart
 	As a retail shopping user
 	I want to be able to remove items from my cart
 	So that I do not purchase things that I do not want.
 	
-Scenario: Remove one item from the cart and see amount is less
-	Given I have two items in my cart that total 500 dollars
-	When I remove one item of 250 dollars
-	Then my cart should have a total of 250 dollars
+Scenario: Remove the last item from the cart and see amount is adjusted
+	Given I am shopping in a retail store
+	And I add "item one" of 200 dollars
+	And I add "item two" of 300 dollars
+	When I remove the last item
+	Then my checkout value should be 200 dollars
+	
+#Scenario: Remove the first item from the cart and see amount is adjusted
