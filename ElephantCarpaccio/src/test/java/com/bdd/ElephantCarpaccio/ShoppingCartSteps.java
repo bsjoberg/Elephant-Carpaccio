@@ -4,19 +4,12 @@ import java.text.DecimalFormat;
 
 import org.junit.Assert;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class ShoppingCartSteps {
 	private RetailStore store = new RetailStore();
-
-	@Then("^the order value should be (\\d+)\\.(\\d+)$")
-	public void theOrderValueShouldBe(int integerAmt, int fractionAmt) throws Throwable {
-		float cartValue = parseIntoFloat(integerAmt, fractionAmt);
-	    Assert.assertEquals(cartValue, store.getCart().getSubTotal(), 2);
-	}
 	
 	@Given("^I am shopping in a retail store$")
 	public void iAmShoppingInARetailStore() throws Throwable {
@@ -27,12 +20,6 @@ public class ShoppingCartSteps {
 	@When("^I add \"([^\"]*)\" of (\\d+) dollars$")
 	public void iAddItemOfDollarValue(String itemName, int value) throws Throwable {
 		store.getCart().add(itemName, value);
-	}
-
-	@Then("^my checkout value should be (\\d+) dollars$")
-	public void myCheckoutValueShouldBe(int value) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		Assert.assertEquals(value, store.getCart().getSubTotal(), 2);
 	}
 	
 	@When("^I remove the last item$")
@@ -46,10 +33,29 @@ public class ShoppingCartSteps {
 		store.getCart().setTaxes(taxRate);
 	}
 
+	@When("^I add \"([^\"]*)\" of (\\d+)\\.(\\d+) dollars$")
+	public void iAddOfDollars(String itemName, int integerAmt, int fractionAmt) throws Throwable {
+	    float itemPrice = parseIntoFloat(integerAmt, fractionAmt);
+		store.getCart().add(itemName, itemPrice);
+	}
+
+	@Then("^my subtotal value should be (\\d+) dollars$")
+	public void mySubtotalValueShouldBe(int value) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		Assert.assertEquals(value, store.getCart().getSubTotal(), 2);
+	}
+
+	@Then("^my subtotal value should be (\\d+)\\.(\\d+) dollars$")
+	public void mySubtotalValueShouldBeDollars(int integerAmt, int fractionAmt) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		float subTotalValue = parseIntoFloat(integerAmt, fractionAmt);
+		Assert.assertEquals(subTotalValue, store.getCart().getSubTotal(), 2);
+	}
+	
 	@Then("^my total value should be (\\d+)\\.(\\d+) dollars$")
 	public void myTotalValueShouldBeDollars(int integerAmt, int fractionAmt) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		float cartValue = parseIntoFloat(integerAmt, fractionAmt);
+	    Assert.assertEquals(cartValue, store.getCart().getTotal(), 2);
 	}
 	
 	private Float parseIntoFloat(int integerAmt, int fractionAmt) {
