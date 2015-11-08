@@ -65,7 +65,7 @@ public class RetailStore {
 				// information on it that causes it to loop again.
 				reader.nextLine();
 			}
-			else if (input.equals("c"))
+			else if (("c").equals(input))
 			{
 				break;
 			}
