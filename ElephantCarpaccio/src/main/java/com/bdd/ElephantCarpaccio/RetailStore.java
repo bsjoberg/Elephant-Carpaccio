@@ -11,32 +11,48 @@ public class RetailStore {
 	}
 	
 	public static void main(String[] args) throws UnknownError {
+		RetailStore store = new RetailStore();
 		Scanner reader = new Scanner (System.in);
 		
-		// Ask what the customer would like to do (add, remove, checkout)
 		System.out.println("Welcome to our retail store");
-		System.out.println("What would you like to do?");
-		System.out.println("(a)dd, (r)emove, (c)heckout");
-		String input = reader.nextLine();
 		
-		if (System.console() == null)
-			System.out.println("Consule is null");
-		
-		if (input.equals("a"))
-		{
-			System.out.println("Enter item name: ");
-			String itemName = reader.nextLine();
-			System.out.println("Enter item price: ");
-			float itemPrice = reader.nextFloat();
-			cart.add(itemName, itemPrice);			
-		}
-		else
-		{
-			throw new UnknownError("Not a valid option");
-		}
-		
+		store.provideOptionsToCustomer(reader);
+			
 		System.out.println("Your order value is: $" + cart.getTotal());
 		reader.close();
+	}
+
+	private void provideOptionsToCustomer(Scanner reader) {
+		String input = "";
+		
+		while (!input.equals("c"))
+		{
+			// Ask what the customer would like to do (add, remove, checkout)
+			System.out.println("What would you like to do?");
+			System.out.println("(a)dd item, (c)heckout");
+			input = reader.nextLine();
+			
+			if (input.equals("a"))
+			{
+				System.out.println("Enter item name: ");
+				String itemName = reader.nextLine();
+				System.out.println("Enter item price: ");
+				float itemPrice = reader.nextFloat();
+				getCart().add(itemName, itemPrice);
+				
+				// I had to put this in because the reader has some 
+				// information on it that causes it to loop again.
+				reader.nextLine();
+			}
+			else if (input.equals("c"))
+			{
+				break;
+			}
+			else 
+			{
+				System.out.println("Didn't recognize that option, try again");
+			}
+		}	
 	}
 
 	public ShoppingCart getCart() {

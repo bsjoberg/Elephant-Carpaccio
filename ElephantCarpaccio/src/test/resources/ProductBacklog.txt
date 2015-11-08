@@ -1,5 +1,6 @@
-Hello World
-Order Value with manual input
+--Hello World
+--Order Value with manual input
+Add multiple items to cart
 Allow user to remove items from cart
 Checkout item from cart
 Order Value with Manual State Tax
