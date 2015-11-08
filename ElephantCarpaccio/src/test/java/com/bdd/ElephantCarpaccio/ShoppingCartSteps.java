@@ -4,7 +4,6 @@ import java.text.DecimalFormat;
 
 import org.junit.Assert;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -46,9 +45,8 @@ public class ShoppingCartSteps {
 	}
 
 	@When("^I apply \"([^\"]*)\" sales tax$")
-	public void iApplySalesTax(String arg1) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	public void iApplySalesTax(String stateName) throws Throwable {
+		// Don't need code for now.
 	}
 	
 	@When("^I add \"([^\"]*)\" of (\\d+)\\.(\\d+) dollars$")

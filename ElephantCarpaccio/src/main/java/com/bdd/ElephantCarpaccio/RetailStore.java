@@ -12,7 +12,7 @@ public class RetailStore {
 	
 	public RetailStore(String stateName) {
 		String stateCode = StateNameConverter.convertStateName(stateName);
-		cart = new ShoppingCart(stateName);
+		cart = new ShoppingCart(stateCode);
 	}
 
 	public static void main(String[] args) throws UnknownError {
