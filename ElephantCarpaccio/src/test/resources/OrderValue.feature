@@ -3,10 +3,15 @@ Feature: Display Order Value after Item Added
 	I want to add items and get the total value 
 	So that I know how much my stuff will cost before taxes
 	
-Scenario: Checkout one item
+Scenario: Checkout one item for 400 dollars
 	Given The price of "item one" is $400
 	When I add "item one" to my cart
 	Then the order value should be $400
+
+Scenario: Checkout one item for 300 dollars
+	Given The price of "item one" is $300
+	When I add "item one" to my cart
+	Then the order value should be $300
 	
 #Scenario: Checkout two items of same price
 #	Given The price of "item one" is $300

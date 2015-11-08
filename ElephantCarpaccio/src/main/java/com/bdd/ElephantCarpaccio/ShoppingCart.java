@@ -1,15 +1,14 @@
 package com.bdd.ElephantCarpaccio;
 
 public class ShoppingCart {
-
-	public void add(String itemOneName, int itemOnePrice) {
-		// TODO Auto-generated method stub
-		
+	private int runningTotal = 0;
+	
+	public void add(String itemName, int itemPrice) {
+		runningTotal += itemPrice;
 	}
 
 	public int getTotal() {
-		// TODO Auto-generated method stub
-		return 400;
+		return runningTotal;
 	}
 
 }
