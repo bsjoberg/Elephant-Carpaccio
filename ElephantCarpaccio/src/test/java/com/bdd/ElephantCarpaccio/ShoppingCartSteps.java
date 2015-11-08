@@ -15,7 +15,7 @@ public class ShoppingCartSteps {
 	@Then("^the order value should be (\\d+)\\.(\\d+)$")
 	public void theOrderValueShouldBe(int integerAmt, int fractionAmt) throws Throwable {
 		float cartValue = parseIntoFloat(integerAmt, fractionAmt);
-	    Assert.assertEquals(cartValue, store.getCart().getTotal(), 2);
+	    Assert.assertEquals(cartValue, store.getCart().getSubTotal(), 2);
 	}
 	
 	@Given("^I am shopping in a retail store$")
@@ -32,7 +32,7 @@ public class ShoppingCartSteps {
 	@Then("^my checkout value should be (\\d+) dollars$")
 	public void myCheckoutValueShouldBe(int value) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-		Assert.assertEquals(value, store.getCart().getTotal(), 2);
+		Assert.assertEquals(value, store.getCart().getSubTotal(), 2);
 	}
 	
 	@When("^I remove the last item$")

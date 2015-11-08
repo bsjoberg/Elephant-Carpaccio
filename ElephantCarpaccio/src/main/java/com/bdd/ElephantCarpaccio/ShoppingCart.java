@@ -4,15 +4,16 @@ import java.util.LinkedList;
 
 public class ShoppingCart {
 	LinkedList<Item> cart = new LinkedList<Item>();
-	private float runningTotal = 0;
+	private float runningSubTotal = 0;
+	private float taxRate = 0;
 	
 	public void add(String itemName, float itemPrice) {
 		cart.add(new Item(itemName, itemPrice));
-		runningTotal += itemPrice;
+		runningSubTotal += itemPrice;
 	}
 
-	public float getTotal() {
-		return runningTotal;
+	public float getSubTotal() {
+		return runningSubTotal;
 	}
 
 	public int getNumberOfItems() {
@@ -21,18 +22,22 @@ public class ShoppingCart {
 
 	public void removeLastItem() {
 		float itemPrice = cart.get(cart.size() - 1).getItemPrice();
-		runningTotal -= itemPrice;
+		runningSubTotal -= itemPrice;
 		cart.remove();
 	}
 	
 	public void removeFirstItem() {
 		float itemPrice = cart.get(0).getItemPrice();
-		runningTotal -= itemPrice;
+		runningSubTotal -= itemPrice;
 		cart.remove();
 	}
 
-	public void setTaxes(float parseFloat) {
-		// TODO Auto-generated method stub
-		
+	public void setTaxes(float rate) {
+		taxRate = rate;
+	}
+
+	public float getTotal() {
+		float total = runningSubTotal * taxRate/100 + runningSubTotal;
+		return total;
 	}
 }

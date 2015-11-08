@@ -18,7 +18,7 @@ public class RetailStore {
 		
 		store.provideOptionsToCustomer(reader);
 			
-		System.out.println("Your order value is: $" + cart.getTotal());
+		System.out.println("Your order value is: $" + cart.getSubTotal());
 		reader.close();
 	}
 

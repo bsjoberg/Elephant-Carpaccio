@@ -10,14 +10,14 @@ public class ShoppingCartTest extends TestCase {
 	public void testCheckValueAfterAddingOneItemIntegerValue() {
 		ShoppingCart cart = new ShoppingCart();
 		cart.add("Item One", 500);
-		assertEquals(500, cart.getTotal(), 2);
+		assertEquals(500, cart.getSubTotal(), 2);
 	}
 
 	@Test
 	public void testCheckValueAfterAddingOneItemDecimalValue() {
 		ShoppingCart cart = new ShoppingCart();
 		cart.add("Item One", (float)520.10);
-		assertEquals(520.10, cart.getTotal(), 2);
+		assertEquals(520.10, cart.getSubTotal(), 2);
 	}
 	
 	@Test 
@@ -25,7 +25,7 @@ public class ShoppingCartTest extends TestCase {
 		ShoppingCart cart = new ShoppingCart();
 		cart.add("Item One", 500);
 		cart.add("Item Two", 500);
-		assertEquals(1000, cart.getTotal(), 2);
+		assertEquals(1000, cart.getSubTotal(), 2);
 	}
 	
 	@Test 
@@ -33,7 +33,7 @@ public class ShoppingCartTest extends TestCase {
 		ShoppingCart cart = new ShoppingCart();
 		cart.add("Item One", 600);
 		cart.add("Item Two", 500);
-		assertEquals(1100, cart.getTotal(), 2);	
+		assertEquals(1100, cart.getSubTotal(), 2);	
 	}
 	
 	@Test
@@ -41,7 +41,7 @@ public class ShoppingCartTest extends TestCase {
 		ShoppingCart cart = new ShoppingCart();
 		cart.add("Item One", (float)600.23);
 		cart.add("Item Two", (float)500.56);
-		assertEquals(1100.79, cart.getTotal(), 2);	
+		assertEquals(1100.79, cart.getSubTotal(), 2);	
 	}
 	
 	@Test
@@ -78,9 +78,9 @@ public class ShoppingCartTest extends TestCase {
 		ShoppingCart cart = new ShoppingCart();
 		cart.add("Item One", 600);
 		cart.add("Item Two", 500);
-		assertEquals(1100, cart.getTotal(), 2);
+		assertEquals(1100, cart.getSubTotal(), 2);
 		cart.removeLastItem();
-		assertEquals(600, cart.getTotal(), 2);
+		assertEquals(600, cart.getSubTotal(), 2);
 	}
 	
 	@Test
@@ -89,8 +89,27 @@ public class ShoppingCartTest extends TestCase {
 		ShoppingCart cart = new ShoppingCart();
 		cart.add("Item One", 600);
 		cart.add("Item Two", 500);
-		assertEquals(1100, cart.getTotal(), 2);
+		assertEquals(1100, cart.getSubTotal(), 2);
 		cart.removeFirstItem();
-		assertEquals(500, cart.getTotal(), 2);
+		assertEquals(500, cart.getSubTotal(), 2);
+	}
+	
+	@Test 
+	public void testApplyTaxesToCartWithOneItem() 
+	{
+		ShoppingCart cart = new ShoppingCart();
+		cart.add("Item One", 600);
+		cart.setTaxes((float)6.85);
+		assertEquals(641.1, cart.getTotal(), 2);
+	}
+	
+	@Test 
+	public void testApplyTaxesToCartWithTwoItems() 
+	{
+		ShoppingCart cart = new ShoppingCart();
+		cart.add("Item One", 500);
+		cart.add("Item Two", 500);
+		cart.setTaxes((float)6.85);
+		assertEquals(1068.50, cart.getTotal(), 2);
 	}
 }
