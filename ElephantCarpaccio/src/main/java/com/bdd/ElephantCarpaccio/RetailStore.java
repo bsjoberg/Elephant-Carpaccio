@@ -53,7 +53,7 @@ public class RetailStore {
 			{
 				System.out.println("Enter tax rate: ");
 				float rate = reader.nextFloat();
-				getCart().setTaxes(rate);
+				getCart().setTaxRate(rate);
 				
 				// I had to put this in because the reader has some 
 				// information on it that causes it to loop again.

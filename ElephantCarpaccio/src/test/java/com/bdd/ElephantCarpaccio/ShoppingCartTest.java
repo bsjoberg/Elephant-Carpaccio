@@ -99,7 +99,7 @@ public class ShoppingCartTest extends TestCase {
 	{
 		ShoppingCart cart = new ShoppingCart();
 		cart.add("Item One", 600);
-		cart.setTaxes((float)6.85);
+		cart.setTaxRate((float)6.85);
 		assertEquals(641.1, cart.getTotal(), 2);
 	}
 	
@@ -109,7 +109,14 @@ public class ShoppingCartTest extends TestCase {
 		ShoppingCart cart = new ShoppingCart();
 		cart.add("Item One", 500);
 		cart.add("Item Two", 500);
-		cart.setTaxes((float)6.85);
+		cart.setTaxRate((float)6.85);
 		assertEquals(1068.50, cart.getTotal(), 2);
+	}
+	
+	@Test
+	public void testApplyUtahTaxesToCartWithOneItem() {
+		ShoppingCart cart = new ShoppingCart("UT");
+		cart.add("Item One", 2000);
+		assertEquals(2137, cart.getTotal(), 2);
 	}
 }

@@ -35,7 +35,7 @@ public class ShoppingCartSteps {
 	@When("^I apply a sales tax of (\\d+)\\.(\\d+)%$")
 	public void iApplyASalesTaxOf(int integerAmt, int fractionAmt) throws Throwable {
 		float taxRate = parseIntoFloat(integerAmt, fractionAmt);
-		store.getCart().setTaxes(taxRate);
+		store.getCart().setTaxRate(taxRate);
 	}
 
 	@When("^I add \"([^\"]*)\" of (\\d+)\\.(\\d+) dollars$")

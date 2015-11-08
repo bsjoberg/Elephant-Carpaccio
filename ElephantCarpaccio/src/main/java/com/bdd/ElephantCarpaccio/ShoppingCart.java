@@ -7,6 +7,16 @@ public class ShoppingCart {
 	private float runningSubTotal = 0;
 	private float taxRate = 0;
 	
+	public ShoppingCart()
+	{
+		
+	}
+	
+	public ShoppingCart(String stateCode) {
+		if (stateCode == "UT")
+			setTaxRate((float)6.85);
+	}
+
 	public void add(String itemName, float itemPrice) {
 		cart.add(new Item(itemName, itemPrice));
 		runningSubTotal += itemPrice;
@@ -32,7 +42,7 @@ public class ShoppingCart {
 		cart.remove();
 	}
 
-	public void setTaxes(float rate) {
+	public void setTaxRate(float rate) {
 		taxRate = rate;
 	}
 
