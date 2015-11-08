@@ -62,13 +62,13 @@ public class ShoppingCartTest extends TestCase {
 	}
 	
 	@Test
-	public void testRemoveOneItemFromCartWithTwoItems()
+	public void testRemoveLastItemFromCartWithTwoItems()
 	{
 		ShoppingCart cart = new ShoppingCart();
 		cart.add("Item One", 600);
 		cart.add("Item Two", 500);
 		assertEquals(2, cart.getNumberOfItems());
-		cart.removeItem();
+		cart.removeLastItem();
 		assertEquals(1, cart.getNumberOfItems());
 	}
 	
@@ -79,7 +79,18 @@ public class ShoppingCartTest extends TestCase {
 		cart.add("Item One", 600);
 		cart.add("Item Two", 500);
 		assertEquals(1100, cart.getTotal(), 2);
-		cart.removeItem();
+		cart.removeLastItem();
 		assertEquals(600, cart.getTotal(), 2);
+	}
+	
+	@Test
+	public void testRemoveFirstItemFromCartWithTwoItemsAndCheckValue()
+	{
+		ShoppingCart cart = new ShoppingCart();
+		cart.add("Item One", 600);
+		cart.add("Item Two", 500);
+		assertEquals(1100, cart.getTotal(), 2);
+		cart.removeFirstItem();
+		assertEquals(500, cart.getTotal(), 2);
 	}
 }

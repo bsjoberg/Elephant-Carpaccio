@@ -19,10 +19,15 @@ public class ShoppingCart {
 		return cart.size();
 	}
 
-	public void removeItem() {
+	public void removeLastItem() {
 		float itemPrice = cart.get(cart.size() - 1).getItemPrice();
 		runningTotal -= itemPrice;
 		cart.remove();
 	}
-
+	
+	public void removeFirstItem() {
+		float itemPrice = cart.get(0).getItemPrice();
+		runningTotal -= itemPrice;
+		cart.remove();
+	}
 }
