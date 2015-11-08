@@ -30,4 +30,9 @@ public class ShoppingCart {
 		runningTotal -= itemPrice;
 		cart.remove();
 	}
+
+	public void setTaxes(float parseFloat) {
+		// TODO Auto-generated method stub
+		
+	}
 }
