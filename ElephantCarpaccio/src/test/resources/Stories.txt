@@ -1,5 +1,7 @@
 Hello World
 Order Value with manual input
+Allow user to remove items from cart
+Checkout item from cart
 Order Value with Manual State Tax
 Order Value with Utah default state tax
 Order value with 2 state taxes supported
@@ -9,7 +11,4 @@ Lowest value discount rate applied before taxes
 1st and 2nd lowest value discount rates applied before taxes
 5 discount rates applied before taxes
 Initial user interface
-
-
 Responsive
-
