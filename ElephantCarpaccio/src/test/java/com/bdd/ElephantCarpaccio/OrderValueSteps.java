@@ -9,12 +9,11 @@ import cucumber.api.java.en.When;
 
 public class OrderValueSteps {
 	private RetailStore store = new RetailStore();
-	private ShoppingCart cart = new ShoppingCart();
 
 	@Then("^the order value should be (\\d+)\\.(\\d+)$")
 	public void theOrderValueShouldBe(@Transform(MoneyConverter.class) Money amount) throws Throwable {
 		Float cartValue = Float.parseFloat(amount.toString());
-	    Assert.assertEquals(cartValue, cart.getTotal(), 2);
+	    Assert.assertEquals(cartValue, store.getCart().getTotal(), 2);
 	}
 	
 	@Given("^I am shopping in a retail store$")
