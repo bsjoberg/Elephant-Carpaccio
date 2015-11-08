@@ -10,6 +10,11 @@ public class RetailStore {
 		cart = new ShoppingCart();
 	}
 	
+	public RetailStore(String stateName) {
+		String stateCode = StateNameConverter.convertStateName(stateName);
+		cart = new ShoppingCart(stateName);
+	}
+
 	public static void main(String[] args) throws UnknownError {
 		RetailStore store = new RetailStore();
 		Scanner reader = new Scanner (System.in);

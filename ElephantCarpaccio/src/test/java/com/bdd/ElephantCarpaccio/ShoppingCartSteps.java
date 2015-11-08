@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 
 import org.junit.Assert;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -17,6 +18,12 @@ public class ShoppingCartSteps {
 		store = new RetailStore();
 	}
 
+	@Given("^I am shopping in a retail store in \"([^\"]*)\"$")
+	public void iAmShoppingInARetailStoreIn(String stateName) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    store = new RetailStore(stateName);
+	}
+	
 	@When("^I add \"([^\"]*)\" of (\\d+) dollars$")
 	public void iAddItemOfDollarValue(String itemName, int value) throws Throwable {
 		store.getCart().add(itemName, value);
@@ -38,6 +45,12 @@ public class ShoppingCartSteps {
 		store.getCart().setTaxRate(taxRate);
 	}
 
+	@When("^I apply \"([^\"]*)\" sales tax$")
+	public void iApplySalesTax(String arg1) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+	
 	@When("^I add \"([^\"]*)\" of (\\d+)\\.(\\d+) dollars$")
 	public void iAddOfDollars(String itemName, int integerAmt, int fractionAmt) throws Throwable {
 	    float itemPrice = parseIntoFloat(integerAmt, fractionAmt);
