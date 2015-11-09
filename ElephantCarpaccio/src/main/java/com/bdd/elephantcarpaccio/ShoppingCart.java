@@ -55,7 +55,6 @@ public class ShoppingCart {
 	}
 
 	public float getTotal() {
-		float total = runningSubTotal * taxRate/100 + runningSubTotal;
-		return total;
+		return runningSubTotal * taxRate / 100 + runningSubTotal;
 	}
 }
