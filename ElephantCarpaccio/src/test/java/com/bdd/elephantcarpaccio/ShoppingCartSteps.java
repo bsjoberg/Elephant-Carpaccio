@@ -4,8 +4,6 @@ import java.text.DecimalFormat;
 
 import org.junit.Assert;
 
-import com.bdd.elephantcarpaccio.RetailStore;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -25,19 +23,27 @@ public class ShoppingCartSteps {
 	    store = new RetailStore(stateName);
 	}
 	
-	@When("^I add \"([^\"]*)\" of (\\d+) dollars$")
-	public void iAddItemOfDollarValue(String itemName, int value) throws Throwable {
-		store.getCart().add(itemName, value);
+	@When("^I add (\\d+) item of (\\d+) dollars$")
+	public void iAddItemOfDollars(int numberItems, int itemPrice) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		store.getCart().add(numberItems, itemPrice);
+	}
+
+	@When("^I add (\\d+) item of (\\d+)\\.(\\d+) dollars$")
+	public void iAddItemOfDollars(int numberOfItems, int integerAmt, int fractionAmt) throws Throwable {
+		float itemPrice = parseIntoFloat(integerAmt, fractionAmt);
+		store.getCart().add(numberOfItems, itemPrice);
+	}
+
+	@When("^I add (\\d+) items of (\\d+) dollars$")
+	public void iAddItemsOfDollars(int numberOfItems, int value) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		store.getCart().add(numberOfItems, value);
 	}
 	
-	@When("^I remove the first item$")
+	@When("^I remove one item$")
 	public void iRemoveTheFirstItem() throws Throwable {
-		store.getCart().removeFirstItem();
-	}
-	
-	@When("^I remove the last item$")
-	public void iRemoveTheLastItem() throws Throwable {
-		store.getCart().removeLastItem();
+		store.getCart().removeItem();
 	}
 
 	@When("^I apply a sales tax of (\\d+)\\.(\\d+)%$")
@@ -49,12 +55,6 @@ public class ShoppingCartSteps {
 	@When("^I apply \"([^\"]*)\" sales tax$")
 	public void iApplySalesTax(String stateName) throws Throwable {
 		// Don't need code for now.
-	}
-	
-	@When("^I add \"([^\"]*)\" of (\\d+)\\.(\\d+) dollars$")
-	public void iAddOfDollars(String itemName, int integerAmt, int fractionAmt) throws Throwable {
-	    float itemPrice = parseIntoFloat(integerAmt, fractionAmt);
-		store.getCart().add(itemName, itemPrice);
 	}
 
 	@Then("^my subtotal value should be (\\d+) dollars$")

@@ -36,13 +36,13 @@ public class RetailStore {
 			// Ask what the customer would like to do (add, checkout)
 			System.out.println("Current Subtotal: $" + getCart().getSubTotal());
 			System.out.println("What would you like to do?");
-			System.out.println("(a)dd item, (r)emove last item, set (t)axes, (c)heckout");
+			System.out.println("(a)dd item, (r)emove one item, set (t)axes, (c)heckout");
 			input = reader.nextLine();
 			
 			if (("a").equals(input))
 			{
-				System.out.println("Enter item name: ");
-				String itemName = reader.nextLine();
+				System.out.println("Enter number of items: ");
+				int itemName = reader.nextInt();
 				System.out.println("Enter item price: ");
 				float itemPrice = reader.nextFloat();
 				getCart().add(itemName, itemPrice);
@@ -53,7 +53,7 @@ public class RetailStore {
 			}
 			else if (("r").equals(input))
 			{
-				getCart().removeLastItem();
+				getCart().removeItem();
 			}
 			else if (("t").equals(input))
 			{

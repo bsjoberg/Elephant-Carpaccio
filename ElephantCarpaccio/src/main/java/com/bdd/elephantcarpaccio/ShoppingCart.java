@@ -3,13 +3,13 @@ package com.bdd.elephantcarpaccio;
 import java.util.LinkedList;
 
 public class ShoppingCart {
-	private LinkedList<Item> cart;
+	private LinkedList<Float> cart;
 	private float runningSubTotal;
 	private float taxRate;
 	
 	public ShoppingCart()
 	{
-		cart = new LinkedList<Item>();
+		cart = new LinkedList<Float>();
 		runningSubTotal = 0;
 		taxRate = 0;
 	}
@@ -23,8 +23,16 @@ public class ShoppingCart {
 			setTaxRate((float)8.0);
 	}
 
-	public void add(String itemName, float itemPrice) {
-		cart.add(new Item(itemName, itemPrice));
+	public void add(int numberOfItems, float itemPrice)
+	{
+		for (int i = 0; i < numberOfItems; i++)
+		{
+			add(itemPrice);
+		}
+	}
+	
+	public void add(float itemPrice) {
+		cart.add(itemPrice);
 		runningSubTotal += itemPrice;
 	}
 
@@ -36,15 +44,9 @@ public class ShoppingCart {
 		return cart.size();
 	}
 
-	public void removeLastItem() {
-		float itemPrice = cart.get(cart.size() - 1).getItemPrice();
-		runningSubTotal -= itemPrice;
-		cart.remove();
-	}
-	
-	public void removeFirstItem() {
-		float itemPrice = cart.get(0).getItemPrice();
-		runningSubTotal -= itemPrice;
+	public void removeItem() 
+	{
+		runningSubTotal -= cart.getFirst().floatValue();
 		cart.remove();
 	}
 
