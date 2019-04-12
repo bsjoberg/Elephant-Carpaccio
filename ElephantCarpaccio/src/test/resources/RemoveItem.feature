@@ -1,4 +1,4 @@
-Feature: Remove item(s) from the cart
+Feature: Remove an item or items from the cart
 	As a retail shopping user
 	I want to be able to remove items from my cart
 	So that I do not purchase things that I do not want.
