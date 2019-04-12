@@ -1,7 +1,7 @@
 Feature: Remove an item or items from the cart
 	As a retail shopping user
 	I want to remove items from my cart
-	So that I do not purchase things that I do not want.
+	So that I do not purchase things that I do not want
 	
 Scenario: Remove one item from the cart and see amount is adjusted
 	Given I am shopping in a retail store
